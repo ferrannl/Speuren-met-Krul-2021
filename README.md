@@ -1,43 +1,42 @@
-░██████╗██████╗░███████╗██╗░░░██╗██████╗░███████╗███╗░░██╗  ███╗░░░███╗███████╗████████╗
-██╔════╝██╔══██╗██╔════╝██║░░░██║██╔══██╗██╔════╝████╗░██║  ████╗░████║██╔════╝╚══██╔══╝
-╚█████╗░██████╔╝█████╗░░██║░░░██║██████╔╝█████╗░░██╔██╗██║  ██╔████╔██║█████╗░░░░░██║░░░
-░╚═══██╗██╔═══╝░██╔══╝░░██║░░░██║██╔══██╗██╔══╝░░██║╚████║  ██║╚██╔╝██║██╔══╝░░░░░██║░░░
-██████╔╝██║░░░░░███████╗╚██████╔╝██║░░██║███████╗██║░╚███║  ██║░╚═╝░██║███████╗░░░██║░░░
-╚═════╝░╚═╝░░░░░╚══════╝░╚═════╝░╚═╝░░╚═╝╚══════╝╚═╝░░╚══╝  ╚═╝░░░░░╚═╝╚══════╝░░░╚═╝░░░
+# Speuren met Krul (2021)
 
-██╗░░██╗██████╗░██╗░░░██╗██╗░░░░░
-██║░██╔╝██╔══██╗██║░░░██║██║░░░░░
-█████═╝░██████╔╝██║░░░██║██║░░░░░
-██╔═██╗░██╔══██╗██║░░░██║██║░░░░░
-██║░╚██╗██║░░██║╚██████╔╝███████╗
+C++ console application created in 2021 as part of a school assignment by **Ferran Hendriks (2130858)**.  
+The project is built with **Visual Studio** and uses **libcurl** for HTTP/HTTPS requests.
 
-Ferran-Hendriks - 2130858
+> ⚠️ This repository is primarily configured and tested for **Windows** with **Visual Studio 2019** and **x86 (Win32)** builds.
 
-Run program in Debug configuration and x86 (Win32) platform.
+---
 
-Here's how I've got curl to work with Visual Studio 2019 16.7.2:
+## Project Goals
 
-Download curl zip package from https://curl.haxx.se/download.html (latest verified is: https://curl.haxx.se/download/curl-7.72.0.zip)
-Extract downloaded package to a folder of your choice (e.g. C:\curl\)
-Open Developer Command Prompt for VS 2017 (see Windows Start menu or %PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Visual Studio 2019\Visual Studio Tools\) and cd to C:\curl\winbuild\
-Run nmake /f Makefile.vc mode=static. This will build curl as a static library into C:\curl\builds\libcurl-vc-x86-release-static-ipv6-sspi-schannel\
-Create a new project in Visual Studio (e.g. a Windows Console Application)
-In Project Properties -> VC++ Directories -> Include Directories add C:\curl\builds\libcurl-vc-x86-release-static-ipv6-sspi-schannel\include\
-In Project Properties -> VC++ Directories -> Library Directories add C:\curl\builds\libcurl-vc-x86-release-static-ipv6-sspi-schannel\lib\ there
-In Project Properties -> Linker -> Input -> Additional Dependencies add libcurl_a.lib, Ws2_32.lib, Crypt32.lib, Wldap32.lib and Normaliz.lib
-Try to build a sample program:
-#define CURL_STATICLIB
-#include <curl\curl.h>
+- Provide a small C++ console project for the *Speuren met Krul* assignment.
+- Demonstrate how to:
+  - Set up a Visual Studio C++ project.
+  - Link against **libcurl** as a static library.
+  - Use curl from C++ code (HTTP/HTTPS requests, etc.).
 
-Alternatively you can use vcpkg to install curl:
+If you’re looking at this repo as part of a portfolio:  
+it mainly showcases **C++**, **Visual Studio tooling**, and **native library integration** (libcurl).
 
-Get vcpkg from https://github.com/microsoft/vcpkg/archive/2019.08.zip and extract it to a folder of your choice (e.g. C:\vcpkg\)
-Open Developer Command Prompt for VS 2017 (see Windows Start menu or %PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Visual Studio 2019\Visual Studio Tools\) and cd to C:\vcpkg\
-Run bootstrap-vcpkg.bat
-Run vcpkg.exe integrate install
-Run vcpkg.exe install curl
-Create a new C++ project in Visual Studio and you're ready to go - try it with the example above. There's no need to modify project settings.
+---
 
-For more details, visit:
-https://stackoverflow.com/questions/53861300/how-do-you-properly-install-libcurl-for-use-in-visual-studio-2017
-https://curl.haxx.se/libcurl/
+## Tech Stack
+
+- **Language:** C++  
+- **IDE:** Visual Studio 2019 (v142 toolset)  
+- **Platform:** Windows, **Win32 (x86)** and x64 configurations available  
+- **Networking library:** [libcurl](https://curl.se/libcurl/) (linked statically)  
+
+---
+
+## Repository Structure
+
+```text
+Speuren-met-Krul-2021/
+├─ src/                         # All C++ source files (program logic)
+├─ Speuren-metKrul-2.sln       # Visual Studio solution
+├─ Speuren-metKrul-2.vcxproj   # Visual Studio project file
+├─ Speuren-metKrul-2.vcxproj.filters
+├─ .gitignore
+├─ .gitattributes
+└─ README.md                    # This file
